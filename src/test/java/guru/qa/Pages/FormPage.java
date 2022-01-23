@@ -120,7 +120,7 @@ public class FormPage {
     }
 
     public String chooseDateOfBirth(){
-        open("https://demoqa.com/automation-practice-form");
+
         String[] months  = new String[] {"January", "February", "March", "April",
         "May", "June", "July", "August", "September", "October", "November", "December"};
         int m = faker.number().numberBetween(0, 11);
