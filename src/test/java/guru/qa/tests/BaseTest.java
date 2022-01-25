@@ -1,4 +1,4 @@
-package guru.qa.Tests;
+package guru.qa.tests;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.AfterEach;
@@ -10,13 +10,9 @@ public class BaseTest {
 
     @BeforeEach
     public void beforeTest() {
-
         clearBrowserCookies();
-
         Configuration.baseUrl = "https://demoqa.com/automation-practice-form";
         Configuration.browserSize = "1590x850";
-
-
         open("");
     }
 

@@ -1,4 +1,4 @@
-package guru.qa.Pages;
+package guru.qa.pages;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.github.javafaker.Faker;

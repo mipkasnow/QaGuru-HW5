@@ -1,6 +1,6 @@
-package guru.qa.Tests;
+package guru.qa.tests;
 
-import guru.qa.Pages.FormPage;
+import guru.qa.pages.FormPage;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.CollectionCondition.containExactTextsCaseSensitive;
