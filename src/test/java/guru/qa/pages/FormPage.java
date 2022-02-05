@@ -2,6 +2,7 @@ package guru.qa.pages;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.github.javafaker.Faker;
+import io.qameta.allure.Step;
 
 import java.util.Random;
 
@@ -12,24 +13,28 @@ public class FormPage {
 
     Faker faker = new Faker();
 
+    @Step("Заполняем Имя")
     public String fillFirstName(){
         String firstName = faker.name().firstName();
         $("#firstName").setValue(firstName);
         return firstName;
     }
 
+    @Step("Заполняем Фамилию")
     public String fillLastName(){
         String lastName = faker.name().lastName();
         $("#lastName").setValue(lastName);
         return lastName;
     }
 
+    @Step("Заполняем емайл")
     public String fillEmail(){
         String email = faker.name().username() + "@mail.ru";
         $("#userEmail").setValue(email);
         return email;
     }
 
+    @Step("Выбираем пол")
     public String chooseGender(String gender){
         String gnd = null;
         if(gender.equals("1")){
@@ -44,12 +49,14 @@ public class FormPage {
         return gnd;
     }
 
+    @Step("Заполняем телефон")
     public String fillPhoneNumber(){
         String phoneNumber = Long.toString(faker.number().numberBetween(1000000000, 2000000000));
         $("#userNumber").setValue(phoneNumber);
         return phoneNumber;
     }
 
+    @Step("Выбираем хобби")
     public String chooseAllHobbies(){
         ElementsCollection hobbies = $$("[for*='hobbies-checkbox']");
         int count = hobbies.size();
@@ -60,6 +67,7 @@ public class FormPage {
         return choosenHobbies;
     }
 
+    @Step("Выбираем предметы")
     public String choseSubject(){
         String[] subjects  = new String[] {"Chemistry", "Computer Science", "Commerce",
                 "Economics", "Maths", "Accounting", "Arts", "Social Studies", "English"};
@@ -69,22 +77,26 @@ public class FormPage {
         return subject;
     }
 
+    @Step("Загружаем файл")
     public String uploadFile(){
         String fileName = "qa-guru.txt";
         $("input[id='uploadPicture']").uploadFromClasspath(fileName);
         return fileName;
     }
 
+    @Step("Заполняем Адрес")
     public String fillAddress(){
         String address = faker.address().fullAddress();
         $("[placeholder='Current Address']").setValue(address);
         return address;
     }
 
+    @Step("Жмем Подтвердить")
     public void submit(){
         $("#submit").scrollIntoView(true).click();
     }
 
+    @Step("Штат и Город")
     public String selectStateAndCity(){
         String[] states  = new String[] {"NCR", "Uttar Pradesh", "Haryana", "Rajasthan"};
         String[] NCR_cities = new String[] {"Delhi", "Gurgaon", "Noida"};
@@ -119,6 +131,7 @@ public class FormPage {
         return stateAndCity;
     }
 
+    @Step("Заполняем Дату рождения")
     public String chooseDateOfBirth(){
 
         String[] months  = new String[] {"January", "February", "March", "April",
